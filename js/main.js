@@ -438,3 +438,14 @@ const bonusObserver = new IntersectionObserver((entries) => {
 bonusItems.forEach(item => bonusObserver.observe(item));
 
 console.log('✨ Landing Page carregada com sucesso!');
+document.querySelectorAll('.faq_question').forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        const item = button.parentElement;
+
+        item.classList.toggle('active');
+
+    });
+
+});
