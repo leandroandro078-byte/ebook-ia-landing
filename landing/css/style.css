@@ -4215,3 +4215,48 @@ button:hover {
 .faq_item.active .faq_question span{
     transform:rotate(45deg);
 }
+/* CONTADOR */
+
+.countdown{
+    padding:60px 20px;
+    background:#03183f;
+}
+
+.countdown_container{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.countdown_container h3{
+    color:#fff;
+    font-size:32px;
+    margin-bottom:30px;
+}
+
+.countdown_timer{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.time_box{
+    min-width:140px;
+    padding:25px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(212,175,55,.3);
+}
+
+.time_box span{
+    display:block;
+    font-size:48px;
+    font-weight:800;
+    color:#d4af37;
+}
+
+.time_box small{
+    color:#fff;
+    font-size:14px;
+}
