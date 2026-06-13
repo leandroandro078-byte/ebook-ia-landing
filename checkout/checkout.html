@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | E-book IA</title>
+
+    <link rel="stylesheet" href="checkout.css">
+
+</head>
+
+<body>
+
+    <section class="checkout">
+
+        <div class="checkout_container">
+
+            <div class="checkout_header">
+
+                <div class="checkout_badge">
+                    🔒 Checkout Seguro
+                </div>
+
+                <h1>
+                    Finalize a Sua Compra
+                </h1>
+
+                <p>
+                    Complete o pagamento e envie o comprovativo para receber o seu e-book.
+                </p>
+
+            </div>
+
+            <div class="checkout_grid">
+
+                <div class="order_summary">
+
+                    <h2>Resumo da Compra</h2>
+
+                    <div class="summary_item">
+                        <span>E-book Executivo IA</span>
+                        <strong>12.500 Kz</strong>
+                    </div>
+
+                    <div class="summary_item">
+                        <span>100 Prompts Empresariais</span>
+                        <strong>Grátis</strong>
+                    </div>
+
+                    <div class="summary_item">
+                        <span>Checklist de Implementação</span>
+                        <strong>Grátis</strong>
+                    </div>
+
+                    <div class="summary_item">
+                        <span>Dashboard de Indicadores</span>
+                        <strong>Grátis</strong>
+                    </div>
+
+                    <div class="summary_total">
+
+                        <span>Total</span>
+
+                        <strong>12.500 Kz</strong>
+
+                    </div>
+
+                </div>
+
+                <div class="payment_details">
+
+                    <h2>Dados de Pagamento</h2>
+
+                    <div class="payment_info">
+
+                        <p>
+                            <strong>Banco:</strong>
+                            Banco SOL
+                        </p>
+
+                        <p>
+                            <strong>Titular:</strong>
+                            Fernando Leandro Lázaro Artur
+                        </p>
+
+                        <p>
+                            <strong>IBAN:</strong><br>
+                            AO06 0044 0000 2839 2115 1011 6
+                        </p>
+
+                        <div class="express_box">
+                            <h3>📱 Multicaixa Express</h3>
+                            <span>924 140 466</span>
+                        </div>
+
+                        <p>
+                            <strong>Valor:</strong>
+                            12.500 Kz
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <form
+            class="checkout_form"
+            action="https://formsubmit.co/leandroandro078@gmail.com"
+            method="POST">
+
+                <h2>Enviar Comprovativo</h2>
+
+                <input
+                    type="text"
+                    name="Nome"
+                    placeholder="Nome Completo"
+                    required>
+
+                <input
+                    type="email"
+                    name="Email"
+                    placeholder="Email"
+                    required>
+
+                <input
+                    type="tel"
+                    name="WhatsApp"
+                    placeholder="WhatsApp"
+                    required>                
+
+                <input type="hidden"
+                    name="_subject"
+                    value="Nova Compra E-book IA">
+
+                <input type="hidden"
+                    name="_next"
+                    value="../obrigado/obrigado.html">
+
+                <input type="hidden"
+                    name="_captcha"
+                    value="false">
+
+
+                <div class="upload_notice">
+                    📎 Após efetuar o pagamento, anexe o comprovativo e clique em "Enviar Comprovativo".
+                </div>
+
+                <input type="file" class="file_input" accept=".jpg,.jpeg,.png,.pdf">    
+
+                <button class="submit_button" onclick="enviarComprovativo()">
+                    ENVIAR COMPROVATIVO
+                </button>
+
+                <div class="trust_box">
+                    🔒 Pagamento Seguro • ⚡ Confirmação Rápida • 📧 Entrega por E-mail
+                </div>
+
+            </form>
+
+            <div class="support">
+
+                <p>
+                    📱 Suporte WhatsApp:
+                    +244 924 140 466
+                </p>
+
+            </div>
+            
+        </div>
+
+    </section>
+    <script src="checkout.js"></script>
+</body>
+
+</html>
