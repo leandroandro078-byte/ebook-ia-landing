@@ -1,0 +1,15 @@
+FASE 2_SEQUENCIA
+
+Ordem Recomendada
+WhatsApp Flutuante
+Barra Fixa CTA
+Contador Regressivo
+Loading do Checkout
+Depoimentos
+FAQ Acordeão
+Meta Pixel
+Google Analytics
+Popup Exit Intent
+Notificações de Compra
+
+Esses primeiros 5 itens costumam gerar o maior impacto com o menor esforço de implementação.

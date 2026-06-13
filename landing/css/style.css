@@ -4026,3 +4026,127 @@ button:hover {
     }
 
 }
+/* ========================================
+   WHATSAPP FLOAT
+======================================== */
+
+.whatsapp_float{
+
+    position:fixed;
+
+    bottom:95px;
+
+    right:25px;
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:32px;
+
+    z-index:9999;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+    animation: whatsappPulse 2s infinite;
+}
+
+.whatsapp_float:hover{
+
+    transform:scale(1.1);
+}
+/* ========================================
+   STICKY CTA
+======================================== */
+
+.sticky_cta{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    background:#04162f;
+
+    padding:15px 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:9998;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.sticky_text{
+
+    color:#ffffff;
+
+    font-weight:700;
+}
+
+.sticky_text strong{
+
+    color:#d4af37;
+}
+
+.sticky_button{
+
+    background:#d4af37;
+
+    color:#04162f;
+
+    text-decoration:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-weight:800;
+}
+
+@media(max-width:768px){
+
+    .sticky_cta{
+
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+}
+@keyframes whatsappPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}

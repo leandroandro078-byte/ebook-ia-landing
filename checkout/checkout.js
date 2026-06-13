@@ -1,5 +1,14 @@
 async function enviarComprovativo() {
 
+    const btn = document.getElementById("submitBtn");
+
+    btn.disabled = true;
+
+    btn.innerHTML = "⏳ ENVIANDO...";
+
+    
+    console.log("BOTÃO ALTERADO");
+    
     try {
 
         // Verificar ficheiro
@@ -72,11 +81,17 @@ async function enviarComprovativo() {
 
         console.log("E-mail enviado com sucesso.");
 
+        btn.innerHTML = "✅ ENVIADO";
+
         // Redirecionar para página de obrigado
         window.location.href =
             "../obrigado/obrigado.html";
 
     } catch (error) {
+
+        btn.disabled = false;
+
+        btn.innerHTML = "ENVIAR COMPROVATIVO";
 
         console.error("ERRO COMPLETO:", error);
 
