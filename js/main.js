@@ -492,3 +492,40 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 
 updateCountdown();
+
+/* =========================
+   PROVA SOCIAL
+========================= */
+
+const salesData = [
+    "Carlos - Luanda",
+    "Ana - Benguela",
+    "João - Huambo",
+    "Pedro - Lubango",
+    "Marta - Malanje",
+    "Paulo - Cabinda",
+    "Fernanda - Soyo",
+    "Miguel - Uíge"
+];
+
+function showSalesPopup(){
+
+    const popup = document.getElementById("salesPopup");
+
+    if(!popup) return;
+
+    const buyer =
+        salesData[Math.floor(Math.random() * salesData.length)];
+
+    document.getElementById("buyerName").textContent = buyer;
+
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 5000);
+}
+
+setTimeout(showSalesPopup, 5000);
+
+setInterval(showSalesPopup, 25000);

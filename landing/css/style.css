@@ -4260,3 +4260,46 @@ button:hover {
     text-transform:uppercase;
     letter-spacing:1px;
 }
+/* =========================
+   POPUP DE PROVA SOCIAL
+========================= */
+
+.sales-popup{
+    position:fixed;
+    left:20px;
+    bottom:90px;
+    background:#0f2447;
+    border:1px solid rgba(255,209,74,.3);
+    border-radius:12px;
+    padding:15px;
+    z-index:9999;
+    width:320px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    transform:translateX(-400px);
+    transition:.5s;
+}
+
+.sales-popup.show{
+    transform:translateX(0);
+}
+
+.sales-popup-content{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.sales-icon{
+    font-size:24px;
+}
+
+.sales-popup strong{
+    color:#ffd14a;
+    display:block;
+}
+
+.sales-popup p{
+    margin:0;
+    color:#fff;
+    font-size:14px;
+}
