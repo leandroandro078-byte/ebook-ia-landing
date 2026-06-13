@@ -70,12 +70,8 @@ async function enviarComprovativo() {
         window.location.href =
             "../obrigado/obrigado.html";
 
-    } catch (error) {
-
-        alert(
-            "Erro ao enviar comprovativo."
-        );
-
-        console.error(error);
+    catch (error) {
+    console.error("ERRO COMPLETO:", error);
+    alert("Erro: " + error.message);
     }
 }
