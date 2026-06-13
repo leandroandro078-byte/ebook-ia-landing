@@ -4228,35 +4228,35 @@ button:hover {
     text-align:center;
 }
 
-.countdown_container h3{
-    color:#fff;
-    font-size:32px;
-    margin-bottom:30px;
-}
-
 .countdown_timer{
     display:flex;
     justify-content:center;
-    gap:25px;
+    gap:20px;
     flex-wrap:wrap;
 }
 
 .time_box{
-    min-width:140px;
-    padding:25px;
-    border-radius:18px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(212,175,55,.3);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,215,0,0.3);
+    border-radius:16px;
+    padding:20px;
+    min-width:120px;
+    backdrop-filter:blur(10px);
 }
 
 .time_box span{
     display:block;
     font-size:48px;
     font-weight:800;
-    color:#d4af37;
+    color:#ffd700;
+    line-height:1;
 }
 
 .time_box small{
-    color:#fff;
+    display:block;
+    margin-top:8px;
+    color:#ffffff;
     font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
