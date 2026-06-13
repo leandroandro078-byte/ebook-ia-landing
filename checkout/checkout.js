@@ -34,13 +34,15 @@ async function enviarComprovativo() {
         emailData.append("WhatsApp", document.getElementById("whatsapp").value);
         emailData.append("Comprovativo", comprovativoUrl);
 
-        await fetch(
-            "https://formsubmit.co/ajax/leandroandro078@gmail.com",
-            {
-                method: "POST",
-                body: emailData
-            }
-        );
+    const emailResponse = await fetch(
+        "https://formsubmit.co/ajax/leandroandro078@gmail.com",
+        {
+        method: "POST",
+        body: emailData
+        }
+    );
+
+        console.log(await emailResponse.text());
 
         window.location.href = "../obrigado/obrigado.html";
 
