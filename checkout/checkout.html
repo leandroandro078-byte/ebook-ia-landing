@@ -112,6 +112,7 @@
             class="checkout_form"
             action="https://formsubmit.co/leandroandro078@gmail.com"
             method="POST">
+            enctype="multipart/form-data">
 
                 <h2>Enviar Comprovativo</h2>
 
@@ -149,9 +150,14 @@
                     📎 Após efetuar o pagamento, anexe o comprovativo e clique em "Enviar Comprovativo".
                 </div>
 
-                <input type="file" class="file_input" accept=".jpg,.jpeg,.png,.pdf">    
+                <input
+                    type="file"
+                    name="comprovativo"
+                    class="file_input"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required>    
 
-                <button class="submit_button" onclick="enviarComprovativo()">
+                <button type="submit" class="submit_button">
                     ENVIAR COMPROVATIVO
                 </button>
 
