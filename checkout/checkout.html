@@ -118,19 +118,19 @@
 
                 <input
                     type="text"
-                    name="Nome"
+                    id="nome"
                     placeholder="Nome Completo"
                     required>
 
                 <input
                     type="email"
-                    name="Email"
+                    id="email"
                     placeholder="Email"
                     required>
 
                 <input
                     type="tel"
-                    name="WhatsApp"
+                    id="whatsapp"
                     placeholder="WhatsApp"
                     required>                
 
@@ -152,12 +152,16 @@
 
                 <input
                     type="file"
+                    id="comprovativo"
                     name="comprovativo"
                     class="file_input"
                     accept=".jpg,.jpeg,.png,.pdf"
-                    required>    
+                    required>   
 
-                <button type="submit" class="submit_button">
+                <button
+                    type="button"
+                    class="submit_button"
+                    onclick="enviarComprovativo()">
                     ENVIAR COMPROVATIVO
                 </button>
 
