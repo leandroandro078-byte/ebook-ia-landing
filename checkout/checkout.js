@@ -1,5 +1,7 @@
 async function enviarComprovativo() {
 
+    try {
+
     const file =
         document.getElementById("comprovativo").files[0];
 
@@ -74,4 +76,6 @@ async function enviarComprovativo() {
     console.error("ERRO COMPLETO:", error);
     alert("Erro: " + error.message);
     }
+
+    
 }
