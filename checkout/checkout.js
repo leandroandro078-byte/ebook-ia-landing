@@ -30,6 +30,9 @@ async function enviarComprovativo() {
 
         const data = await response.json();
 
+        console.log(data);
+        console.log(data.secure_url);
+
         console.log("Resposta Cloudinary:", data);
 
         const comprovativoUrl = data.secure_url;
