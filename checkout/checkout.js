@@ -6,7 +6,7 @@ async function enviarComprovativo() {
 
     btn.innerHTML = "⏳ ENVIANDO...";
 
-    
+
     console.log("BOTÃO ALTERADO");
     
     try {
@@ -82,6 +82,34 @@ async function enviarComprovativo() {
         console.log("E-mail enviado com sucesso.");
 
         btn.innerHTML = "✅ ENVIADO";
+
+        /* META PIXEL */
+
+if(typeof fbq !== "undefined"){
+
+    fbq('track', 'Purchase', {
+
+        value: 12500,
+
+        currency: 'AOA'
+
+    });
+
+}
+
+/* GOOGLE ANALYTICS */
+
+if(typeof gtag !== "undefined"){
+
+    gtag('event', 'purchase', {
+
+        currency: 'AOA',
+
+        value: 12500
+
+    });
+
+}
 
         // Redirecionar para página de obrigado
         window.location.href =

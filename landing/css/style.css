@@ -4275,7 +4275,7 @@ button:hover {
     z-index:9999;
     width:320px;
     box-shadow:0 10px 30px rgba(0,0,0,.4);
-    transform:translateX(-400px);
+    transform:translateX(0px);
     transition:.5s;
 }
 
@@ -4302,4 +4302,80 @@ button:hover {
     margin:0;
     color:#fff;
     font-size:14px;
+}
+/* ====================================
+   CTA PULSE
+==================================== */
+
+@keyframes ctaPulse {
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.hero_button,
+.problem_button,
+.loss_button,
+.solution_button,
+.receive_button,
+.audience_button,
+.bonus_button,
+.final_cta_button,
+.sticky_button{
+
+    animation:ctaPulse 2.5s infinite;
+
+}
+/* ====================================
+   TRUST BAR
+==================================== */
+
+.trust-bar{
+
+    background:#071d49;
+
+    padding:30px 20px;
+
+}
+
+.trust-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.trust-item{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,209,74,.2);
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    font-weight:600;
+
 }
