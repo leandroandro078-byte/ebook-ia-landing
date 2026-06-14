@@ -2,17 +2,15 @@ async function enviarComprovativo() {
 
     const btn = document.getElementById("submitBtn");
 
-    // MOSTRAR LOADING
-    document
-        .getElementById("loadingOverlay")
-        .classList.add("show");
-
-    btn.disabled = true;
-    btn.innerHTML = "⏳ ENVIANDO...";
-
-    console.log("BOTÃO ALTERADO");
-
     try {
+
+        // MOSTRAR LOADING
+        document
+            .getElementById("loadingOverlay")
+            .classList.add("show");
+
+        btn.disabled = true;
+        btn.innerHTML = "⏳ ENVIANDO...";
 
         // VERIFICAR FICHEIRO
         const file =
@@ -20,20 +18,20 @@ async function enviarComprovativo() {
 
         if (!file) {
 
-            document
-                .getElementById("loadingOverlay")
-                .classList.remove("show");
-
             alert("Selecione um comprovativo.");
 
             btn.disabled = false;
             btn.innerHTML = "ENVIAR COMPROVATIVO";
 
+            document
+                .getElementById("loadingOverlay")
+                .classList.remove("show");
+
             return;
         }
 
         // ==========================
-        // UPLOAD CLOUDINARY
+        // CLOUDINARY
         // ==========================
 
         const formData = new FormData();
@@ -45,7 +43,14 @@ async function enviarComprovativo() {
             "ebook_comprovativos"
         );
 
-       
+        const response = await fetch(
+            "https://api.cloudinary.com/v1_1/drbnysxc2/auto/upload",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
         const data = await response.json();
 
         console.log(
@@ -61,7 +66,8 @@ async function enviarComprovativo() {
 
         }
 
-        const comprovativoUrl = data.secure_url;
+        const comprovativoUrl =
+            data.secure_url;
 
         // ==========================
         // FORMSUBMIT
@@ -89,8 +95,6 @@ async function enviarComprovativo() {
             comprovativoUrl
         );
 
-        // CONFIGURAÇÕES FORMSUBMIT
-
         emailData.append(
             "_subject",
             "Novo Comprovativo Recebido - E-book IA"
@@ -113,7 +117,7 @@ async function enviarComprovativo() {
 
         emailData.append(
             "_autoresponse",
-            "Recebemos o seu comprovativo com sucesso. O pagamento será validado e o e-book com todos os bónus será enviado para o seu e-mail ou WhatsApp. Obrigado pela sua compra."
+            "Recebemos o seu comprovativo com sucesso. O pagamento será validado e o e-book com todos os bónus será enviado para o seu e-mail ou WhatsApp."
         );
 
         const emailResponse =
@@ -132,8 +136,6 @@ async function enviarComprovativo() {
             "Resposta FormSubmit:",
             emailResult
         );
-        
-        alert(JSON.stringify(emailResult));
 
         // ==========================
         // META PIXEL
@@ -162,8 +164,8 @@ async function enviarComprovativo() {
                 "event",
                 "purchase",
                 {
-                    currency: "AOA",
-                    value: 12500
+                    value: 12500,
+                    currency: "AOA"
                 }
             );
 
@@ -172,13 +174,9 @@ async function enviarComprovativo() {
         btn.innerHTML =
             "✅ ENVIADO";
 
-        // ESCONDER LOADING
-
         document
             .getElementById("loadingOverlay")
             .classList.remove("show");
-
-        // REDIRECIONAR
 
         window.location.href =
             "../obrigado/obrigado.html";
@@ -186,6 +184,13 @@ async function enviarComprovativo() {
     }
 
     catch (error) {
+
+        console.error(
+            "ERRO COMPLETO:",
+            error
+        );
+
+         alert(error.message);
 
         document
             .getElementById("loadingOverlay")
@@ -196,13 +201,8 @@ async function enviarComprovativo() {
         btn.innerHTML =
             "ENVIAR COMPROVATIVO";
 
-        console.error(
-            "ERRO COMPLETO:",
-            error
-        );
-
         alert(
-            "Ocorreu um erro ao enviar o comprovativo. Tente novamente."
+            "Ocorreu um erro ao enviar o comprovativo."
         );
 
     }
