@@ -14,8 +14,9 @@ async function enviarComprovativo() {
 
     try {
 
-        // Verificar ficheiro
-        const file = document.getElementById("comprovativo").files[0];
+        // VERIFICAR FICHEIRO
+        const file =
+            document.getElementById("comprovativo").files[0];
 
         if (!file) {
 
@@ -31,7 +32,10 @@ async function enviarComprovativo() {
             return;
         }
 
-        // Upload Cloudinary
+        // ==========================
+        // UPLOAD CLOUDINARY
+        // ==========================
+
         const formData = new FormData();
 
         formData.append("file", file);
@@ -51,15 +55,26 @@ async function enviarComprovativo() {
 
         const data = await response.json();
 
-        console.log("Resposta Cloudinary:", data);
+        console.log(
+            "Resposta Cloudinary:",
+            data
+        );
 
         if (!data.secure_url) {
-            throw new Error("Falha ao carregar comprovativo.");
+
+            throw new Error(
+                "Falha ao carregar comprovativo."
+            );
+
         }
 
-        const comprovativoUrl = data.secure_url;
+        const comprovativoUrl =
+            data.secure_url;
 
-        // Preparar dados para FormSubmit
+        // ==========================
+        // FORMSUBMIT
+        // ==========================
+
         const emailData = new FormData();
 
         emailData.append(
@@ -82,53 +97,102 @@ async function enviarComprovativo() {
             comprovativoUrl
         );
 
-        // Enviar email
-        await fetch(
-            "https://formsubmit.co/ajax/leandroandro078@gmail.com",
-            {
-                method: "POST",
-                body: emailData
-            }
+        // CONFIGURAÇÕES FORMSUBMIT
+
+        emailData.append(
+            "_subject",
+            "Novo Comprovativo Recebido - E-book IA"
         );
 
-        console.log("E-mail enviado com sucesso.");
+        emailData.append(
+            "_template",
+            "table"
+        );
 
-        btn.innerHTML = "✅ ENVIADO";
+        emailData.append(
+            "_captcha",
+            "false"
+        );
 
-        /* META PIXEL */
+        emailData.append(
+            "_replyto",
+            document.getElementById("email").value
+        );
 
-        if(typeof fbq !== "undefined"){
+        emailData.append(
+            "_autoresponse",
+            "Recebemos o seu comprovativo com sucesso. O pagamento será validado e o e-book com todos os bónus será enviado para o seu e-mail ou WhatsApp. Obrigado pela sua compra."
+        );
 
-            fbq('track', 'Purchase', {
-                value: 12500,
-                currency: 'AOA'
-            });
+        const emailResponse =
+            await fetch(
+                "https://formsubmit.co/ajax/leandroandro078@gmail.com",
+                {
+                    method: "POST",
+                    body: emailData
+                }
+            );
+
+        const emailResult =
+            await emailResponse.json();
+
+        console.log(
+            "Resposta FormSubmit:",
+            emailResult
+        );
+
+        // ==========================
+        // META PIXEL
+        // ==========================
+
+        if (typeof fbq !== "undefined") {
+
+            fbq(
+                "track",
+                "Purchase",
+                {
+                    value: 12500,
+                    currency: "AOA"
+                }
+            );
 
         }
 
-        /* GOOGLE ANALYTICS */
+        // ==========================
+        // GOOGLE ANALYTICS
+        // ==========================
 
-        if(typeof gtag !== "undefined"){
+        if (typeof gtag !== "undefined") {
 
-            gtag('event', 'purchase', {
-                currency: 'AOA',
-                value: 12500
-            });
+            gtag(
+                "event",
+                "purchase",
+                {
+                    currency: "AOA",
+                    value: 12500
+                }
+            );
 
         }
+
+        btn.innerHTML =
+            "✅ ENVIADO";
 
         // ESCONDER LOADING
+
         document
             .getElementById("loadingOverlay")
             .classList.remove("show");
 
         // REDIRECIONAR
+
         window.location.href =
             "../obrigado/obrigado.html";
 
-    } catch (error) {
+    }
 
-        // ESCONDER LOADING
+    catch (error) {
+
         document
             .getElementById("loadingOverlay")
             .classList.remove("show");

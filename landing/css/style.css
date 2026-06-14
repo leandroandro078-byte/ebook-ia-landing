@@ -4561,3 +4561,93 @@ button:hover {
     font-size:30px;
     cursor:pointer;
 }
+/* ====================================
+   TESTEMUNHOS PREMIUM
+==================================== */
+
+.testimonials{
+
+    padding:100px 20px;
+
+    background:#061937;
+
+}
+
+.testimonials_container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.testimonials_grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+    margin-top:50px;
+
+}
+
+.testimonial_card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(212,175,55,.15);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.3s;
+
+}
+
+.testimonial_card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#d4af37;
+
+}
+
+.testimonial_stars{
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+.testimonial_card p{
+
+    color:#d7d7d7;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.testimonial_author{
+
+    color:#ffffff;
+
+    font-weight:700;
+
+}
+
+.testimonial_role{
+
+    color:#d4af37;
+
+    margin-top:5px;
+
+    font-size:14px;
+
+}
