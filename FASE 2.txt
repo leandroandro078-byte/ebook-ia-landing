@@ -1,9 +1,9 @@
 FASE 2_SEQUENCIA
 
 Ordem Recomendada
-WhatsApp Flutuante
-Barra Fixa CTA
-Contador Regressivo
+WhatsApp Flutuante_feito
+Barra Fixa CTA_feito
+Contador Regressivo_feito
 Loading do Checkout
 Depoimentos
 FAQ Acordeão
@@ -12,4 +12,9 @@ Google Analytics
 Popup Exit Intent
 Notificações de Compra
 
-Esses primeiros 5 itens costumam gerar o maior impacto com o menor esforço de implementação.
+git add .
+git commit -m "Adiciona popup de prova social"
+git push origin main
+
+meta pixel:956803899621912
+id stream: 15070168020
