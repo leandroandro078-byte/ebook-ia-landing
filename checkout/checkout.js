@@ -2,20 +2,32 @@ async function enviarComprovativo() {
 
     const btn = document.getElementById("submitBtn");
 
-    btn.disabled = true;
+    // MOSTRAR LOADING
+    document
+        .getElementById("loadingOverlay")
+        .classList.add("show");
 
+    btn.disabled = true;
     btn.innerHTML = "⏳ ENVIANDO...";
 
-
     console.log("BOTÃO ALTERADO");
-    
+
     try {
 
         // Verificar ficheiro
         const file = document.getElementById("comprovativo").files[0];
 
         if (!file) {
+
+            document
+                .getElementById("loadingOverlay")
+                .classList.remove("show");
+
             alert("Selecione um comprovativo.");
+
+            btn.disabled = false;
+            btn.innerHTML = "ENVIAR COMPROVATIVO";
+
             return;
         }
 
@@ -70,7 +82,7 @@ async function enviarComprovativo() {
             comprovativoUrl
         );
 
-        // Enviar para o Gmail
+        // Enviar email
         await fetch(
             "https://formsubmit.co/ajax/leandroandro078@gmail.com",
             {
@@ -85,43 +97,51 @@ async function enviarComprovativo() {
 
         /* META PIXEL */
 
-if(typeof fbq !== "undefined"){
+        if(typeof fbq !== "undefined"){
 
-    fbq('track', 'Purchase', {
+            fbq('track', 'Purchase', {
+                value: 12500,
+                currency: 'AOA'
+            });
 
-        value: 12500,
+        }
 
-        currency: 'AOA'
+        /* GOOGLE ANALYTICS */
 
-    });
+        if(typeof gtag !== "undefined"){
 
-}
+            gtag('event', 'purchase', {
+                currency: 'AOA',
+                value: 12500
+            });
 
-/* GOOGLE ANALYTICS */
+        }
 
-if(typeof gtag !== "undefined"){
+        // ESCONDER LOADING
+        document
+            .getElementById("loadingOverlay")
+            .classList.remove("show");
 
-    gtag('event', 'purchase', {
-
-        currency: 'AOA',
-
-        value: 12500
-
-    });
-
-}
-
-        // Redirecionar para página de obrigado
+        // REDIRECIONAR
         window.location.href =
             "../obrigado/obrigado.html";
 
     } catch (error) {
 
+        // ESCONDER LOADING
+        document
+            .getElementById("loadingOverlay")
+            .classList.remove("show");
+
         btn.disabled = false;
 
-        btn.innerHTML = "ENVIAR COMPROVATIVO";
+        btn.innerHTML =
+            "ENVIAR COMPROVATIVO";
 
-        console.error("ERRO COMPLETO:", error);
+        console.error(
+            "ERRO COMPLETO:",
+            error
+        );
 
         alert(
             "Ocorreu um erro ao enviar o comprovativo. Tente novamente."

@@ -529,3 +529,31 @@ function showSalesPopup(){
 setTimeout(showSalesPopup, 5000);
 
 setInterval(showSalesPopup, 25000);
+
+/* EXIT INTENT */
+
+let exitShown = false;
+
+document.addEventListener("mouseleave",(e)=>{
+
+    if(e.clientY <= 0 && !exitShown){
+
+        exitShown = true;
+
+        document
+        .getElementById("exitPopup")
+        ?.classList.add("show");
+
+    }
+
+});
+
+document
+.getElementById("closeExit")
+?.addEventListener("click",()=>{
+
+    document
+    .getElementById("exitPopup")
+    ?.classList.remove("show");
+
+});
