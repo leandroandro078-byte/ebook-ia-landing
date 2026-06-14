@@ -45,23 +45,7 @@ async function enviarComprovativo() {
             "ebook_comprovativos"
         );
 
-        // Enviar email
-        const emailResponse = await fetch(
-        "https://formsubmit.co/ajax/leandroandro078@gmail.com",
-        {
-        method: "POST",
-        body: emailData
-        }
-        );
-
-        const emailResult = await emailResponse.json();
-
-        console.log("RESPOSTA FORMSUBMIT:", emailResult);
-
-        alert(JSON.stringify(emailResult));
-
-        console.log("E-mail enviado com sucesso.");
-
+       
         const data = await response.json();
 
         console.log(
@@ -77,8 +61,7 @@ async function enviarComprovativo() {
 
         }
 
-        const comprovativoUrl =
-            data.secure_url;
+        const comprovativoUrl = data.secure_url;
 
         // ==========================
         // FORMSUBMIT
@@ -149,6 +132,8 @@ async function enviarComprovativo() {
             "Resposta FormSubmit:",
             emailResult
         );
+        
+        alert(JSON.stringify(emailResult));
 
         // ==========================
         // META PIXEL
