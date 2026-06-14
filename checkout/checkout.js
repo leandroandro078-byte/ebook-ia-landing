@@ -45,13 +45,22 @@ async function enviarComprovativo() {
             "ebook_comprovativos"
         );
 
-        const response = await fetch(
-            "https://api.cloudinary.com/v1_1/drbnysxc2/auto/upload",
-            {
-                method: "POST",
-                body: formData
-            }
+        // Enviar email
+        const emailResponse = await fetch(
+        "https://formsubmit.co/ajax/leandroandro078@gmail.com",
+        {
+        method: "POST",
+        body: emailData
+        }
         );
+
+        const emailResult = await emailResponse.json();
+
+        console.log("RESPOSTA FORMSUBMIT:", emailResult);
+
+        alert(JSON.stringify(emailResult));
+
+        console.log("E-mail enviado com sucesso.");
 
         const data = await response.json();
 
