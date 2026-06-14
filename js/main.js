@@ -557,3 +557,31 @@ document
     ?.classList.remove("show");
 
 });
+let exitPopupShown = false;
+
+document.addEventListener("mouseleave", function(e){
+
+    if(
+        e.clientY <= 0 &&
+        !exitPopupShown
+    ){
+
+        exitPopupShown = true;
+
+        document
+            .getElementById("exitPopup")
+            .classList.add("show");
+
+    }
+
+});
+
+document
+    .getElementById("closeExitPopup")
+    ?.addEventListener("click", () => {
+
+        document
+            .getElementById("exitPopup")
+            .classList.remove("show");
+
+    });

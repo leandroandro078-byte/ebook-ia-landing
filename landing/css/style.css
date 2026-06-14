@@ -4499,3 +4499,65 @@ button:hover {
     font-size:22px;
 
 }
+.exit-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:99999;
+}
+
+.exit-popup.show{
+    display:flex;
+}
+
+.exit-popup-content{
+    width:90%;
+    max-width:500px;
+    background:#082a5e;
+    border:1px solid #d4af37;
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    position:relative;
+}
+
+.exit-popup-content h2{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.exit-popup-content p{
+    color:#d6d6d6;
+    line-height:1.7;
+}
+
+.exit-price{
+    color:#ffd54a;
+    font-size:32px;
+    font-weight:700;
+    margin:25px 0;
+}
+
+.exit-button{
+    display:inline-block;
+    padding:15px 35px;
+    background:#ffd54a;
+    color:#001b44;
+    font-weight:700;
+    text-decoration:none;
+    border-radius:12px;
+}
+
+.exit-close{
+    position:absolute;
+    right:15px;
+    top:15px;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+}
